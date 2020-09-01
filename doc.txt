@@ -1,1 +1,13 @@
-doc
+
+分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作
+
+
+-----本地仓库为主
+1、关联远程库
+git remote add origin git@github.com:jianzhuliu/learngit.git
+--origin 远程库名字，自定义，可以是其他
+
+2、推送本地库到远程
+git push -u origin master 
+--首次推送需要加上 -u ，完成本地master分支推送到远程master分支，且把分支关联起来
+--后期本地提交，只需要 git push origin master 
