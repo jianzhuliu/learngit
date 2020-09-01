@@ -34,7 +34,8 @@ git config --global user.email "email@example.com"
 16、创建+切换分支	git checkout -b dev or git switch -c dev 
 17、合并某分支到当前分支 	git merge dev 
 18、删除分支	git branch -d dev 
-
+19、查看分支合并图 	git log --graph (git log --graph --pretty=oneline --abbrev-commit)
+20、合并分支禁用 Fast forward 模式, git merge --no-ff -m "merge with no-ff" dev 
 
 
 
