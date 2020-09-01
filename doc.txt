@@ -1,8 +1,43 @@
+-----下载
+https://git-scm.com/downloads
 
-分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作
+
+-----配置
+git config --global user.name "your name"
+git config --global user.email "email@example.com"
+
+-----概念
+1、工作区(Worksing Directory) 
+2、版本库(Repository) 	--工作区隐藏目录 .git 
+3、暂存区(stage) 		--git add 添加文件到暂存区，git commit把暂存区内容提交到当前分支
+4、git管理的是修改，而不是文件， git diff HEAD -- file  查看工作区和版本库最新版本的区别
 
 
------本地仓库为主
+
+
+-----操作
+1、初始化 		git init 
+2、添加文件 	git add file
+3、提交文件		git commit -m "description"
+4、查看修改状态 	git status 
+5、对比修改内容 	git diff file 
+6、查看日志 		git log    or  git log --pretty=oneline
+7、查看所有操作记录	git reflog 
+8、当前版本		HEAD 
+9、上一个版本	HEAD~1  or HEAD^
+10、还原到版本	git reset --hard commit_id 
+11、还原修改 	git checkout -- file (让文件回到最近一次 git commit or git add时状态)
+12、删除文件 	git rm file  and  git commit -m "description"
+
+
+分布式版本控制系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作
+
+-----------生成ssh秘钥
+ssh-keygen -t rsa -C "youremail@example.com"
+会在用户目录找到 .ssh 目录，里面文件 id_rsa(私钥) 和 id_rsa.pub(公钥)
+
+-------------远程仓库
+-----a、本地仓库为主
 1、关联远程库
 git remote add origin git@github.com:jianzhuliu/learngit.git
 --origin 远程库名字，自定义，可以是其他
@@ -11,3 +46,14 @@ git remote add origin git@github.com:jianzhuliu/learngit.git
 git push -u origin master 
 --首次推送需要加上 -u ，完成本地master分支推送到远程master分支，且把分支关联起来
 --后期本地提交，只需要 git push origin master 
+
+
+-----b、远程库到本地
+1、克隆,Git支持多种协议，包括https，但ssh协议速度最快
+git clone git@github.com:jianzhuliu/gitskills.git
+or 
+git clone https://github.com/jianzhuliu/gitskills.git
+
+
+
+
