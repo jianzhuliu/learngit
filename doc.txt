@@ -5,6 +5,21 @@ https://git-scm.com/downloads
 -----配置
 git config --global user.name "your name"
 git config --global user.email "email@example.com"
+git config --global color.ui true
+
+--别名
+git config --global alias.st status 
+git config --global alias.co checkout 
+git config --global alias.ci commit 
+git config --global alias.br branch 
+git config --global alias.unstage "reset HEAD"
+git config --global alias.last "log -1"
+git config --global alias.lg "log --graph --pretty=oneline --abbrev-commit"
+
+配置Git的时候，加上--global是针对当前用户起作用的，在用户主目录下的一个隐藏文件.gitconfig中
+如果不加，那只针对当前的仓库起作用，对应文件每个仓库的Git配置文件都放在.git/config
+
+
 
 -----概念
 1、工作区(Worksing Directory) 
@@ -12,12 +27,16 @@ git config --global user.email "email@example.com"
 3、暂存区(stage) 		--git add 添加文件到暂存区，git commit把暂存区内容提交到当前分支
 4、git管理的是修改，而不是文件， git diff HEAD -- file  查看工作区和版本库最新版本的区别
 
+------ .gitignore
+https://github.com/github/gitignore
+--检查文件添加不了，被 .gitignore 忽略了,对应规则
+git check-ignore -v file 
 
 
 
 -----操作
 1、初始化 		git init 
-2、添加文件 	git add file
+2、添加文件 	git add file ,强制添加 git add -f file 
 3、提交文件		git commit -m "description"
 4、查看修改状态 	git status 
 5、对比修改内容 	git diff file 
