@@ -59,7 +59,7 @@ git config --global user.email "email@example.com"
 38、发布标签到远程	git push origin v1.0
 39、推送全部标签	git push origin --tags
 40、从远程删除标签	git push origin :refs/tags/v0.9
-
+41、删除本地已有远程库	git remote rm origin
 
 
 
@@ -111,6 +111,14 @@ git clone https://github.com/jianzhuliu/gitskills.git
 
 https://gitee.com/
 
+--删除本地已有的远程库
+git remote rm origin 
 
+--与远程建立关联
+git remote add gitee git@gitee.com:jianzhuliu/learngit.git
+git remote add github git@github.com:jianzhuliu/learngit.git
 
+--推送
+git push github master 
+git push gitee master 
 
