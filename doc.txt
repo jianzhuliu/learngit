@@ -50,6 +50,15 @@ git config --global user.email "email@example.com"
 30、抓取最新的提交	git pull 
 31、rebase操作可以把本地未push的分支提交历史整理成直线
 
+32、创建标签	git tag v1.0
+33、按指定的commit创建标签 	git tag v0.9 commit_id 
+34、带有说明创建标签	git tag -a v1.2 -m "release v1.2"
+35、查看标签列表	git tag 
+36、查看指定标签	git show v1.0
+37、删除标签	git tag -d v1.0
+38、发布标签到远程	git push origin v1.0
+39、推送全部标签	git push origin --tags
+40、从远程删除标签	git push origin :refs/tags/v0.9
 
 
 
@@ -91,6 +100,16 @@ git clone https://github.com/jianzhuliu/gitskills.git
 
 
 
+-----分支策略
+在实际开发中，我们应该按照几个基本原则进行分支管理：
+1、master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；
+2、干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；
+3、每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
+
+
+
+
+https://gitee.com/
 
 
 
