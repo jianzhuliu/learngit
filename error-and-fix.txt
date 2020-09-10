@@ -1,0 +1,15 @@
+
+git 操作过程中，出现的异常
+1、fatal: refusing to merge unrelated histories
+操作步骤
+1、本地 git init 然后 git add 且 git commit -m 
+2、远程github后台 new repository，勾选了 README 及 .gitignore
+3、本地 git remote add github git@github.com:username/仓库.git 
+4、本地 git push -u github master, 失败提示本地与远程库不一致
+5、本地 git pull github master,失败，提示了  fatal
+
+处理方式
+1、本地 git pull github master --allow-unrelated-histories 
+2、本地 git push github master 
+
+先clone，然后再加内容，就不会出现这种的情况
