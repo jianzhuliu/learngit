@@ -1,0 +1,81 @@
+
+
+
+-------------查看端口被占用
+1、lsof -i:3306    (root用户执行)
+lsof 	list open files
+
+lsof -c -p 1234 	列出进程号为1234的进程所打开的文件
+lsof abc.txt 		显示开启文件abc.txt的进程
+
+2、netstat
+netstat -tunlp | grep 3306
+-t 	仅显示tcp相关
+-u	仅显示udp相关
+-n 	拒绝显示别名，能显示数字的全部转换为数字
+-l 	仅列出在listen(监听)的服务状态
+-p	显示建立相关链接的程序名
+
+
+--------------查看CPU使用情况
+1、top 
+%us：(user)表示用户空间程序的cpu使用率（没有通过nice调度）
+%sy：(system)表示系统空间的cpu使用率，主要是内核程序。
+%ni：(nice)表示用户空间且通过nice调度过的程序的cpu使用率。
+%id：(idle)空闲cpu
+%wa：(iowait)cpu运行时在等待io的时间
+%hi：cpu处理硬中断的数量
+%si：cpu处理软中断的数量
+%st：(steal)被虚拟机偷走的cpu
+
+2、sar 
+sar -u 1 5 	每1秒采集一次CUP使用率，共采集5次
+
+sar -q 1 5 	进程队列长度和平均负载状态
+	runq-sz：运行队列的长度（等待运行的进程数）
+	plist-sz：进程列表中进程（processes）和线程（threads）的数量
+	ldavg-1：最后1分钟的系统平均负载（System load average）
+	ldavg-5：过去5分钟的系统平均负载
+	ldavg-15：过去15分钟的系统平均负载
+
+sar -w 1 5 	创建的平均值和上下文切换的次数
+sar -u -f /var/log/sa/sa08 	可以获取过去指定日期的性能参数
+
+3、mpstat 
+mpstat 1 5
+
+4、dstat --top-cpu  	最占cpu的进程
+
+
+------------查看内存使用率
+1、top 
+
+2、free	显示Linux系统中空闲的、已用的物理内存及swap内存,及被内核使用的buffer
+-b 　以Byte为单位显示内存使用情况。 
+-k 　以KB为单位显示内存使用情况。 
+-m 　以MB为单位显示内存使用情况。
+-g   以GB为单位显示内存使用情况。 
+-o 　不显示缓冲区调节列。 
+-s<间隔秒数> 　持续观察内存使用状况。 
+-t 　显示内存总和列。 
+-V 　显示版本信息。 
+
+free [-k] 	# 以 kb  为单位显示内存使用状况
+free -g 	# 以 G 为单位显示内存使用状况
+free -m 	# 以 M 为单位显示内存使用状况
+free -t  	# 以总和的形式显示内存的使用信息
+free -s 1 	# 每一秒显示内存使用情况
+
+total:总计物理内存的大小。
+used:已使用多大。
+free:可用有多少。
+Shared:多个进程共享的内存总额。
+Buff/cache:磁盘缓存的大小。
+
+--------------查看磁盘使用率
+1、df 
+
+
+
+
+
